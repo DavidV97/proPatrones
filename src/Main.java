@@ -1,4 +1,3 @@
-package proPatrones;
 
 public class Main {
 
