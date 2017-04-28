@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import Enum.TiposPiezas;
 import Enum.tiposDeJuego;
 
 public class Main {
@@ -124,13 +126,13 @@ public class Main {
 	public static void escogerJuego(String tipoJuego){
 		switch(tipoJuego){
 			case "1":
-				gestor.enviarJuego(tiposDeJuego.ajedrez);
+				gestor.enviarJuego(tiposDeJuego.ajedrez,TiposPiezas.piezasAjedrez);
 			break;
 			case "2":
-				gestor.enviarJuego(tiposDeJuego.damas);
+				gestor.enviarJuego(tiposDeJuego.damas,TiposPiezas.piezasDamas);
 				break;
 			case "3":
-				gestor.enviarJuego(tiposDeJuego.go);
+				gestor.enviarJuego(tiposDeJuego.go,TiposPiezas.piezasGo);
 				break;
 				
 			default:
