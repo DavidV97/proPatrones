@@ -27,7 +27,7 @@ public class Main {
     static void showMenu(){
 		out.println();
 		out.println("    -- MENÚ PRINCIPAL --    ");
-		out.println("1.  ");
+		out.println("1.  Crear un jugador");
 		out.println("2.  ");
 		out.println("3.  ");
 		out.println("0. Salir. ");
