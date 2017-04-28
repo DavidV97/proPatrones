@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import ComunicacionManager.ComunicationManager;
+import Enum.TiposPiezas;
 import Enum.tiposDeJuego;
 
 public class Gestor {
@@ -59,17 +60,17 @@ public class Gestor {
 	public boolean checkExists(){
 		return true;
 	}
-	public void enviarJuego(tiposDeJuego tipoJuego){
+	public void enviarJuego(tiposDeJuego tipoJuego,TiposPiezas tipoPieza){
 		ComunicationManager commManager = new ComunicationManager();
 		switch(tipoJuego){
 			case ajedrez:
-				commManager.juegoEnviado(tipoJuego);
+				commManager.juegoEnviado(tipoJuego,tipoPieza);
 				break;
 			case damas:
-				commManager.juegoEnviado(tipoJuego);
+				commManager.juegoEnviado(tipoJuego,tipoPieza);
 				break;
 			case go:
-				commManager.juegoEnviado(tipoJuego);
+				commManager.juegoEnviado(tipoJuego,tipoPieza);
 				break;
 			default:
 				break;
