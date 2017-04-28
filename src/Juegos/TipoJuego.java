@@ -2,6 +2,8 @@ package Juegos;
 
 import java.util.ArrayList;
 
-public abstract class TipoJuego {
-	protected ArrayList piezas;
+public interface TipoJuego {
+ ArrayList piezas = new ArrayList();
+	
+ public void jugar(ArrayList piezas);
 }
