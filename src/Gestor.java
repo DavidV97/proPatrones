@@ -32,7 +32,7 @@ public class Gestor {
 
 			// set the properties value
 			prop.setProperty("Username", jugador.getUsername());
-			prop.setProperty("Email", jugador.getCorreo());
+			prop.setProperty("Email", jugador.getEmail());
 			prop.setProperty("Password", jugador.getPassword());
 
 			// save properties to project root folder
