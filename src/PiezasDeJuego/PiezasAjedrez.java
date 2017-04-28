@@ -2,7 +2,13 @@ package PiezasDeJuego;
 
 import java.util.ArrayList;
 
-public class PiezasGo implements Piezas {
+public class PiezasAjedrez implements Piezas{
+
+	@Override
+	public ArrayList crearPiezas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public void color(String pcolor) {
@@ -14,12 +20,6 @@ public class PiezasGo implements Piezas {
 	public void coordenadas(String pcoordenadas) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public ArrayList crearPiezas() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package PiezasDeJuego;
 
+import java.util.ArrayList;
+
 public class PiezasDamas implements Piezas{
 
 	@Override
@@ -12,6 +14,12 @@ public class PiezasDamas implements Piezas{
 	public void coordenadas(String pcoordenadas) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList crearPiezas() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
