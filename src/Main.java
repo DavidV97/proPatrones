@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import Enum.tiposDeJuego;
 
 public class Main {
 
@@ -27,8 +28,8 @@ public class Main {
     static void showMenu(){
 		out.println();
 		out.println("    -- MENÚ PRINCIPAL --    ");
-		out.println("1.  ");
-		out.println("2.  ");
+		out.println("1.Crear jugador ");
+		out.println("2.Escoger tipo de juego\n 1- Ajedrez\n 2- Damas\n 3- Go  ");
 		out.println("3.  ");
 		out.println("0. Salir. ");
 		out.println();
@@ -48,7 +49,8 @@ public class Main {
     		if(option.equals("1")){
     			createJugador();
         	}else if(option.equals("2")){
-        		
+        		String tipoJuego = readInput();
+        		escogerJuego(tipoJuego);
         		
         	}else if(option.equals("3")){
         		
@@ -119,5 +121,23 @@ public class Main {
     	}
     	return password;
     }
+	public void escogerJuego(String tipoJuego){
+		switch(tipoJuego){
+			case "1":
+				gestor.enviarJuego(tiposDeJuego.ajedrez);
+			break;
+			case "2":
+				gestor.enviarJuego(tiposDeJuego.damas);
+				break;
+			case "3":
+				gestor.enviarJuego(tiposDeJuego.go);
+				break;
+				
+			default:
+				System.out.println("Opcion invalida");
+				break;
+				
+		}
+	}
 
 }
