@@ -121,7 +121,7 @@ public class Main {
     	}
     	return password;
     }
-	public void escogerJuego(String tipoJuego){
+	public static void escogerJuego(String tipoJuego){
 		switch(tipoJuego){
 			case "1":
 				gestor.enviarJuego(tiposDeJuego.ajedrez);
