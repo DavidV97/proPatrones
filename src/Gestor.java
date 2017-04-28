@@ -6,6 +6,9 @@ import java.io.OutputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+import ComunicacionManager.ComunicationManager;
+import Enum.tiposDeJuego;
+
 public class Gestor {
 	
 	private static Gestor gestor = null;
@@ -56,5 +59,20 @@ public class Gestor {
 	public boolean checkExists(){
 		return true;
 	}
-	
+	public void enviarJuego(tiposDeJuego tipoJuego){
+		ComunicationManager commManager = new ComunicationManager();
+		switch(tipoJuego){
+			case ajedrez:
+				commManager.juegoEnviado(tipoJuego);
+				break;
+			case damas:
+				commManager.juegoEnviado(tipoJuego);
+				break;
+			case go:
+				commManager.juegoEnviado(tipoJuego);
+				break;
+			default:
+				break;
+		}
+	}
 }
