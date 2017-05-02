@@ -27,7 +27,7 @@ public class Main {
     
     static void showMenu(){
 		out.println();
-		out.println("    -- MENÚ PRINCIPAL --    ");
+		out.println("    -- MENU PRINCIPAL --    ");
 		out.println("1.  Crear un jugador");
 		out.println("2.  ");
 		out.println("3.  ");
@@ -132,7 +132,7 @@ public class Main {
     	boolean reprobate = true;
     	
     	while(reprobate){
-    		out.println("Contraseña: ");
+    		out.println("ContraseÃ±a: ");
     		password = readInput();
     		if(password != null && password != ""){
     			if(password.length() >= 6){
