@@ -5,6 +5,7 @@ import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class Main {
 
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -37,30 +38,36 @@ public class Main {
     
     static void menu()throws java.io.IOException{
     	
+    	gestor.filesDirection();
     	boolean exit = false;
     	String option;
     	
     	while(!exit){
-    		
     		showMenu();
     		option = readInput();
     		
-    		if(option.equals("1")){
+    		switch(option){
+    		
+    		case "1":
     			createJugador();
-        	}else if(option.equals("2")){
-        		
-        		
-        	}else if(option.equals("3")){
-        		
-        		
-        	}else if(option.equals("0")){
-        		exit = true;
+    			break;
+    			
+    		case "2":
+    			break;
+    			
+    		case "3":
+    			break;
+    			
+    		case "0":
+    			exit = true;
         		out.println("-- Hasta pronto --");
         		
-        	}else{
-        		out.println("-- Opcion invalida --");
+        		break;
+    		default:
+    			out.println("-- Opcion invalida --");
     			out.println();
-        	}
+				break;
+    		}
     	}
     }
     
@@ -72,6 +79,8 @@ public class Main {
     	pPassword = getPassword();
     	
     	gestor.createJugador(pUsername,pEmail,pPassword);
+    	
+    	out.println("El jugador se creo de manera exitosa.");
     }
     
     static String getUsername() throws IOException{
@@ -81,8 +90,14 @@ public class Main {
     	while(reprobate){
     		out.println("Nombre de usuario: ");
     		username = readInput();
-    		if(username != null && username != "" && gestor.checkExists()){
-    			reprobate = false;
+    		if(username != null && username != ""){
+    			if(!gestor.checkExists(username)){
+    				reprobate = false;
+    			}else{
+    				out.println("El usuario digitado ya existe, por favor ingrese otro.");
+    			}
+    		}else{
+    			out.println("Asegúrese de no haber dejado el espacio en blanco.");
     		}
     	}
     	return username;
@@ -99,8 +114,14 @@ public class Main {
     		out.println("E-mail: ");
     		email = readInput();
             mather = pattern.matcher(email);
-    		if(email != null && email != "" && mather.find()){
-    			reprobate = false;
+    		if(email != null && email != ""){
+    			if(mather.find()){
+    				reprobate = false;
+    			}else{
+    				out.println("El correo digitado no es un correo, por favor ingrese otro.");
+    			}
+    		}else{
+    			out.println("Asegúrese de no haber dejado el espacio en blanco.");
     		}
     	}
     	return email;
@@ -114,7 +135,13 @@ public class Main {
     		out.println("Contraseña: ");
     		password = readInput();
     		if(password != null && password != ""){
-    			reprobate = false;
+    			if(password.length() >= 6){
+    				reprobate = false;
+    			}else{
+    				out.println("La contraseña digitade debe tener seis o mas caracteres, por favor ingrese otra.");
+    			}
+    		}else{
+    			out.println("Asegúrese de no haber dejado el espacio en blanco.");
     		}
     	}
     	return password;
