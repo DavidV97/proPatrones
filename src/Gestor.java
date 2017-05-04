@@ -71,7 +71,7 @@ public class Gestor {
 	}
 	public String[][] obtenerMatriz(){
 		return this.tablero.dibujarTablero();
-	}
+	} 
 	public void moverPiezas(int posActX, int posAct, int posMovX, int posAMov){
 		Pieza pieza;
 		String[][] matriz = obtenerMatriz();

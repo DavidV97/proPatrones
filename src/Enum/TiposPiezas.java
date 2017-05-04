@@ -5,7 +5,7 @@ PEON,
 ALFIL,  
 CABALLO,  
 TORRE,  
-REINA,  
+REINA,   
 REY,
 piezasDamas,
 piezasGo
