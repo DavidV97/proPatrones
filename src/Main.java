@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import Enum.TiposPiezas;
 import Enum.tiposDeJuego;
 
+
 public class Main {
 
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -29,15 +30,14 @@ public class Main {
 
 	static void showMenu() {
 		out.println();
+
 		out.println("    -- MENÚ PRINCIPAL --    ");
 		out.println("1.Crear jugador ");
 		out.println("2.Escoger tipo de juego  ");
 		out.println("3. imprimirTablero ");
 		out.println("4. mover Piezas ");
-		out.println("0. Salir. ");
-		out.println();
-		out.print("Seleccione una opcion: ");
 	}
+
 
 	static void menu() throws java.io.IOException {
 
@@ -91,7 +91,7 @@ public class Main {
 		while (reprobate) {
 			out.println("Nombre de usuario: ");
 			username = readInput();
-			if (username != null && username != "" && gestor.checkExists()) {
+			if (username != null && username != "" && gestor.checkExists(username)) {
 				reprobate = false;
 			}
 		}
@@ -209,9 +209,8 @@ public class Main {
         case "H": return 7;
         default: System.out.print("Coordenada de letra incorrecta");
                  break;
-    }
+		}
 		return 0;
-}
 	
-
+	}
 }

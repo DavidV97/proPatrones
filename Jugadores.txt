@@ -1,0 +1,15 @@
+Username= dAVID
+Email= ASD@FDS.COM
+Password= 1234567
+Username= JOSE
+Email= jose@gmail.com
+Password= 123456789
+Username= juan123
+Email= juanito@gmail.com
+Password= 12345678
+Username= juanito123
+Email= juanito@gmail.com
+Password= 12345678
+Username= carlos
+Email= soycrack@gmail.com
+Password= crack123

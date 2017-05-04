@@ -6,7 +6,7 @@ public class Jugador {
 	
 	public Jugador (String pUsername, String pEmail, String pPassword){
 		setUsername(pUsername);
-		setCorreo(pEmail);
+		setEmail(pEmail);
 		setPassword(pPassword);
 	}
 
@@ -14,7 +14,7 @@ public class Jugador {
 		this.username = pUsername;
 	}
 	
-	private void setCorreo(String pEmail) {
+	private void setEmail(String pEmail) {
 		this.email = pEmail;
 	}
 	
@@ -26,7 +26,7 @@ public class Jugador {
 		return username;
 	}
 
-	public String getCorreo() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -36,9 +36,9 @@ public class Jugador {
 	}
 	
 	public String toString(){
-		String result = "Username: " + this.username;
-		result += "E-mail: " + this.email;
-		result += "Password: " + this.password;
+		String result = "Username: " + getUsername();
+		result += "E-mail: " + getEmail();
+		result += "Password: " + getPassword();
 		return result;
 	}
 
