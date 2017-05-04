@@ -6,6 +6,7 @@ import Juegos.Damas;
 import Juegos.Go;
 import Juegos.TipoJuego;
 
+
 public class CommunicationComponentFactory {
 	
 	public static TipoJuego CreateComponentForGame(tiposDeJuego ptipoJuego){
