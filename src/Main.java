@@ -32,44 +32,47 @@ public class Main {
 		out.println();
 
 		out.println("    -- MENÚ PRINCIPAL --    ");
-		out.println("1.Crear jugador ");
-		out.println("2.Escoger tipo de juego  ");
-		out.println("3. imprimirTablero ");
-		out.println("4. mover Piezas ");
+		out.println("1. Crear jugador ");
+		out.println("2. Escoger tipo de juego  ");
+		out.println("3. ImprimirTablero ");
+		out.println("4. Mover Piezas ");
+		out.println("0. Salir ");
 	}
 
 
 	static void menu() throws java.io.IOException {
 
 		boolean exit = false;
-		String option;
+		String option;		
 
 		while (!exit) {
 
 			showMenu();
 			option = readInput();
+			
+			switch(option){			
 
-			if (option.equals("1")) {
+			case "1":
 				createJugador();
-			} else if (option.equals("2")) {
+				break;
+			case "2":
 				out.println("1- Ajedrez\n 2- Damas\n 3- Go  ");
 				String tipoJuego = readInput();
 				escogerJuego(tipoJuego);
-
-			} else if (option.equals("3")) {
+				break;
+			case "3":
 				imprimirTablero();
-
-			} else if (option.equals("4")) {
+				break;
+			case "4":
 				moverPiezas();
-
-			
-			} else if (option.equals("0")) {
+				break;
+			case "0":
 				exit = true;
 				out.println("-- Hasta pronto --");
-
-			} else {
+				break;
+			default:
 				out.println("-- Opcion invalida --");
-				out.println();
+				break;
 			}
 		}
 	}
@@ -113,7 +116,6 @@ public class Main {
 			out.println("El formato del correo digitado es ivalido.");
 			getEmail();
 		}
-
 		return email;
 	}
 
