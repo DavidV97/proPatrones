@@ -1,7 +1,12 @@
 package Enum;
 
 public enum TiposPiezas {
-piezasAjedrez,
+PEON, 
+ALFIL,  
+CABALLO,  
+TORRE,  
+REINA,  
+REY,
 piezasDamas,
 piezasGo
 }
