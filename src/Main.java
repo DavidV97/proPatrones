@@ -82,51 +82,51 @@ public class Main {
 		pPassword = getPassword();
 
 		gestor.createJugador(pUsername, pEmail, pPassword);
+		
+		out.println("Jugador creado de manera exitosa");
 	}
 
 	static String getUsername() throws IOException {
 		String username = "";
-		boolean reprobate = true;
+		
+		out.println("Nombre de usuario: ");
+		username = readInput();
 
-		while (reprobate) {
-			out.println("Nombre de usuario: ");
-			username = readInput();
-			if (username != null && username != "" && gestor.checkExists(username)) {
-				reprobate = false;
-			}
+		if(gestor.checkExists(username)){
+			out.println("El usuario digitado ya existe.");
+			getUsername();
 		}
 		return username;
 	}
 
 	static String getEmail() throws IOException {
 		String email = "";
-		boolean reprobate = true;
 		Pattern pattern = Pattern.compile(
 				"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		Matcher mather;
 
-		while (reprobate) {
-			out.println("E-mail: ");
-			email = readInput();
-			mather = pattern.matcher(email);
-			if (email != null && email != "" && mather.find()) {
-				reprobate = false;
-			}
+		out.println("E-mail: ");
+		email = readInput();
+		mather = pattern.matcher(email);
+		
+		if(!mather.find()){
+			out.println("El formato del correo digitado es ivalido.");
+			getEmail();
 		}
+
 		return email;
 	}
 
 	static String getPassword() throws IOException {
 		String password = "";
-		boolean reprobate = true;
 
-		while (reprobate) {
-			out.println("Contraseña: ");
-			password = readInput();
-			if (password != null && password != "") {
-				reprobate = false;
+		out.println("Contraseña: ");
+		password = readInput();
+
+			if(password.length() < 6){
+				out.println("La contraseña debe tener minimo 6 caracteres.");
+				getPassword();
 			}
-		}
 		return password;
 	}
 
