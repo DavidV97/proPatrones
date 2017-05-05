@@ -202,13 +202,15 @@ public class Gestor {
 	public void enviarJuego(tiposDeJuego tipoJuego){
 		this.tablero = new Tablero(tipoJuego);
 	}
+
 	public String[][] obtenerMatriz(){
 		return this.tablero.dibujarTablero();
-	}  
+	}
+
 	public void moverPiezas(int posActX, int posAct, int posMovX, int posAMov){
-		Pieza pieza;
+	/*	Pieza pieza;
 		String[][] matriz = obtenerMatriz();
-		int columnaAct = 0; 
+		int columnaAct = 0;
 		int columnaAMover = 0;
 		for (int x = 0; x < matriz.length; x++) {
 			for (int y = 0; y < matriz[x].length; y++) {
@@ -221,7 +223,8 @@ public class Gestor {
 					}
 				}
 			}
-		}
-		ajedrez.moverPieza(columnaAct, posAct, columnaAMover, posAMov);
+		}*/
+		ajedrez.moverPieza(posActX, posAct, posMovX, posAMov);
+		tablero.dibujarTablero();
 	}
 }

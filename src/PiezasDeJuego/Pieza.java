@@ -17,7 +17,6 @@ public class Pieza {
         setX(x); 
         setY(y); 
         setComer(comer);
-
     } 
      
     public Pieza(String nombre, String imagen){ 
