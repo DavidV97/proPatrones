@@ -1,6 +1,3 @@
-Username= dAVID
-Email= ASD@FDS.COM
-Password= 1234567
 Username= juan123
 Email= juanito@gmail.com
 Password= 12345678
@@ -12,4 +9,7 @@ Email= soycrack@gmail.com
 Password= crack123
 Username= jose
 Email= jose@ucenfotec.ac.cr
+Password= 123456
+Username= David
+Email= dvs@gmail.com
 Password= 123456

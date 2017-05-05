@@ -36,6 +36,7 @@ public class Main {
 		out.println("2. Escoger tipo de juego  ");
 		out.println("3. ImprimirTablero ");
 		out.println("4. Mover Piezas ");
+		out.println("5. Seleccionar jugadores para el juego");
 		out.println("0. Salir ");
 	}
 
@@ -66,6 +67,9 @@ public class Main {
 			case "4":
 				moverPiezas();
 				break;
+			case "5":
+				selecJugadores();
+				break;
 			case "0":
 				exit = true;
 				out.println("-- Hasta pronto --");
@@ -90,7 +94,7 @@ public class Main {
 	}
 
 	static String getUsername() throws IOException {
-		String username = "";
+		String username = ""; 
 		
 		out.println("Nombre de usuario: ");
 		username = readInput();
@@ -131,6 +135,54 @@ public class Main {
 			}
 		return password;
 	}
+	
+	static void selecJugadores() throws IOException{
+		String username1,username2;
+		
+		if(gestor.getQuanJug() > 0){
+			out.println(gestor.getDBJugadores());
+			out.println("Digite el nombre de usuario del jugador 1");
+			username1 = readInput();
+			out.println("Digite el nombre de usuario del jugador 2");
+			username2 = readInput();
+			if(gestor.checkExists(username1)){
+				if(gestor.checkExists(username2)){
+					gestor.setJugador(username1,username2);
+					out.println("Jugadores seleccionados de manera exitosa.");
+				}else{
+					out.println("El nombre del jugador 2 no existe, intente otra vez.");
+					selecJugadores();
+				}
+			}else{
+				out.println("El nombre del jugador 1 no existe, intente otra vez.");
+				selecJugadores();
+			}
+		}else{
+			out.println("Primero debe de crear jugadores.");
+		}
+	}
+	
+//	static String getJugSelect() throws IOException{
+//		String jugSelect;
+//		out.println("1- Jugador\n 2- Jugador\n");
+//		out.println("1- Jugador\n 2- Jugador\n");
+//		String option = readInput();		
+//			
+//		switch(option){			
+//
+//		case "1":
+//			jugSelect = "jug1";
+//			break;
+//		case "2":
+//			jugSelect = "jug2";
+//			break;
+//		default:
+//			out.println("-- Opcion invalida --");
+//			break;
+//		}
+//		
+//		return jugSelect;
+//	}
 
 	public static void escogerJuego(String tipoJuego) {
 		switch (tipoJuego) {

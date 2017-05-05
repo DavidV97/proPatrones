@@ -36,9 +36,9 @@ public class Jugador {
 	}
 	
 	public String toString(){
-		String result = "Username: " + getUsername();
-		result += "E-mail: " + getEmail();
-		result += "Password: " + getPassword();
+		String result = "Username: " + getUsername() + "\n";
+		result += "E-mail: " + getEmail() + "\n";
+		result += "Password: " + getPassword() + "\n";
 		return result;
 	}
 
