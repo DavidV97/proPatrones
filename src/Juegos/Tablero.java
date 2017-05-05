@@ -24,7 +24,7 @@ public class Tablero {
 
 	public String[][] dibujarTablero(){
 		String [][] tablero = new String[getX()][getY()];
-		for(Pieza item : tipoJuego.getPiezas()){
+		for(Pieza item : this.tipoJuego.getPiezas()){
 			tablero[item.getX()][item.getY()] =  "[" + item.getImagen() + "]";
 		} 
 		tablero[8][0] = "  A ";
