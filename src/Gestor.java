@@ -112,7 +112,7 @@ public class Gestor {
 	}
 
 	public void moverPiezas(int posActX, int posAct, int posMovX, int posAMov){
-		Pieza pieza;
+	/*	Pieza pieza;
 		String[][] matriz = obtenerMatriz();
 		int columnaAct = 0;
 		int columnaAMover = 0;
@@ -127,7 +127,8 @@ public class Gestor {
 					}
 				}
 			}
-		}
+		}*/
 		ajedrez.moverPieza(posActX, posAct, posMovX, posAMov);
+		tablero.dibujarTablero();
 	}
 }

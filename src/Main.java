@@ -181,18 +181,18 @@ public class Main {
 			String posicion = readInput();
 			String[] posiciones = posicion.split(","); 
 			String letraTablero = posiciones[1].substring(0,1).toUpperCase();
-			int posActX = verificarLetra(letraTablero);
+			int posActY = verificarLetra(letraTablero);
 			String prueba;
 			char posicionActual = posiciones[0].charAt(1);
 			prueba =  String.valueOf(posicionActual);
-			int posAct = Integer.valueOf(prueba);
+			int posActX = Integer.valueOf(prueba);
 			String letraTableroAMover = posiciones[1].substring(0,1).toUpperCase();
-			int posMovX = verificarLetra(letraTableroAMover);
+			int posMovY = verificarLetra(letraTableroAMover);
 			char posicionAMover = posiciones[1].charAt(1);
 			prueba = String.valueOf(posicionAMover);
-			int posAMov = Integer.valueOf(prueba);
-			out.println(posActX+"-"+posAct+"-"+posMovX+"-"+posAMov);
-			gestor.moverPiezas(posAct,posActX,posAMov,posMovX);
+			int posAMovX = Integer.valueOf(prueba);
+			out.println(posActX+"-"+posActY+"-"+posAMovX+"-"+posMovY);
+			gestor.moverPiezas(posActX,posActY,posAMovX,posMovY);
 			
 		}
 	
