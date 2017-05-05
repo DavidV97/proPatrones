@@ -62,7 +62,7 @@ public class Main {
 			} else if (option.equals("4")) {
 				moverPiezas();
 
-			
+
 			} else if (option.equals("0")) {
 				exit = true;
 				out.println("-- Hasta pronto --");
