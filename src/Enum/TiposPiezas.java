@@ -9,4 +9,5 @@ REINA,
 REY,
 piezasDamas,
 piezasGo
+    
 }
