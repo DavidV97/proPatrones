@@ -66,7 +66,7 @@ public class Main {
 				imprimirTablero();
 				break;
 			case "4":
-				moverPiezas();
+				Jugar();
 				break;
 			case "5":
 				selecJugadores();
@@ -161,29 +161,21 @@ public class Main {
 			out.println("Primero debe de crear jugadores.");
 		}
 	}
-	
-//	static String getJugSelect() throws IOException{
-//		String jugSelect;
-//		out.println("1- Jugador\n 2- Jugador\n");
-//		out.println("1- Jugador\n 2- Jugador\n");
-//		String option = readInput();		
-//			
-//		switch(option){			
-//
-//		case "1":
-//			jugSelect = "jug1";
-//			break;
-//		case "2":
-//			jugSelect = "jug2";
-//			break;
-//		default:
-//			out.println("-- Opcion invalida --");
-//			break;
-//		}
-//		
-//		return jugSelect;
-//	}
 
+	public static boolean validateGame() throws IOException{
+		boolean validation = false;
+		if(gestor.getQuanJug() >= 2){
+			if(gestor.haveSelecJug()){
+					validation = true;
+			}else{
+				out.println("Debe de seleccionar 2 jugadores para jugar.");
+			}
+		}else{
+			out.println("Debe de crear almenos 2 jugadores para jugar.");
+		}
+		return validation;
+	}
+	
 	public static void escogerJuego(String tipoJuego) {
 		switch (tipoJuego) {
 		case "1":
@@ -205,6 +197,7 @@ public class Main {
 
 	public static void imprimirTablero() {
 		String[][] matriz = gestor.obtenerMatriz();
+		out.println("Jugador: " + gestor.getJugAct2());
 		for (int x = 0; x < matriz.length; x++) {
 			for (int y = 0; y < matriz[x].length; y++) {
 				
@@ -223,34 +216,58 @@ public class Main {
 			//System.out.println(" ");
 			
 		}
+		out.println("");
+		out.println("Jugador: " + gestor.getJugAct1());
 		
 	}
-	public static void moverPiezas() throws IOException{
+	public static void Jugar() throws IOException{
 		String salir = "";
+		int aux = 1;
 		
-	
-		while(salir != "E"){
-			imprimirTablero();
-			System.out.println("Ingrese la posicion actual de la pieza y la coordenada a la cual quiere mover la pieza: ");
-			String posicion = readInput();
-			String[] posiciones = posicion.split(","); 
-			String letraTablero = posiciones[1].substring(0,1).toUpperCase();
-			int posActY = verificarLetra(letraTablero);
-			String prueba;
-			char posicionActual = posiciones[0].charAt(1);
-			prueba =  String.valueOf(posicionActual);
-			int posActX = Integer.valueOf(prueba);
-			String letraTableroAMover = posiciones[1].substring(0,1).toUpperCase();
-			int posMovY = verificarLetra(letraTableroAMover);
-			char posicionAMover = posiciones[1].charAt(1);
-			prueba = String.valueOf(posicionAMover);
-			int posAMovX = Integer.valueOf(prueba);
-			out.println(posActX+"-"+posActY+"-"+posAMovX+"-"+posMovY);
-			gestor.moverPiezas(posActX,posActY,posAMovX,posMovY);
-			
+		if(validateGame() && gestor.checkTipJuego()){
+			while(salir != "E"){
+				imprimirTablero();
+				System.out.println("");
+				System.out.println("Turno de: " + getJugTurno(aux));
+				System.out.println("Ingrese la posicion actual de la pieza y la coordenada a la cual quiere mover la pieza: ");
+				String posicion = readInput();
+				if(!posicion.toUpperCase().equals("E")){
+					moverPiezas(posicion);
+				}else{
+					salir = "E";
+					out.println("Saliendo de la partida...");
+				}
+				aux += 1;
+			}
+		}else{
+			out.println("Debe seleccionar el tipo de juego para jugar");
 		}
-	
 	}
+	
+	public static void moverPiezas(String posicion) throws IOException{
+		String[] posiciones = posicion.split(","); 
+		String letraTablero = posiciones[1].substring(0,1).toUpperCase();
+		int posActY = verificarLetra(letraTablero);
+		String prueba;
+		char posicionActual = posiciones[0].charAt(1);
+		prueba =  String.valueOf(posicionActual);
+		int posActX = Integer.valueOf(prueba);
+		String letraTableroAMover = posiciones[1].substring(0,1).toUpperCase();
+		int posMovY = verificarLetra(letraTableroAMover);
+		char posicionAMover = posiciones[1].charAt(1);
+		prueba = String.valueOf(posicionAMover);
+		int posAMovX = Integer.valueOf(prueba);
+		out.println(posActX+"-"+posActY+"-"+posAMovX+"-"+posMovY);
+		gestor.moverPiezas(posActX,posActY,posAMovX,posMovY);
+	}
+	public static String getJugTurno(int aux){
+		if((aux & 1) == 0){
+			return gestor.getJugAct2();
+		}else{
+			return gestor.getJugAct1();
+		}
+	}
+	
 	public static int  verificarLetra(String letraTablero){
 		
 		switch (letraTablero) {

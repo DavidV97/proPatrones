@@ -39,7 +39,22 @@ public class Gestor {
 	
 	public void setJugador(String jug1, String jug2) throws IOException{
 		jugAct1  = getDBJugador(jug1);
-		jugAct1  = getDBJugador(jug2);
+		jugAct2  = getDBJugador(jug2);
+	}
+	
+	public String getJugAct1(){
+		return jugAct1.getUsername();
+	}
+	
+	public String getJugAct2(){
+		return jugAct2.getUsername();
+	}
+	
+	public boolean haveSelecJug(){
+		if(jugAct1 != null && jugAct2 != null){
+			return true;
+		}
+		return false;
 	}
 	
 	public void createJugador(String pUsername, String pEmail, String pPassword) throws IOException{
@@ -150,24 +165,24 @@ public class Gestor {
 		return dboutput;
 	}
 	
-	public void guardarPartida(Jugador jugador1, Jugador jugador2, Tablero partida) throws IOException{
+	public void guardarPartida(Tablero partida) throws IOException{
 		
 		try {
             FileWriter writer = new FileWriter("Partidas.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
  
-            bufferedWriter.write("Jugador 1= " + jugador1.getUsername());
+            bufferedWriter.write("Jugador 1= " + this.jugAct1.getUsername());
             bufferedWriter.newLine();
-            bufferedWriter.write("Jugador 2= " + jugador2.getUsername());
+            bufferedWriter.write("Jugador 2= " + this.jugAct2.getUsername());
             bufferedWriter.newLine();
-            bufferedWriter.write("Partida = " + jugador1.getPassword());
+            bufferedWriter.write("Partida = " );
             bufferedWriter.newLine();
  
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
             BufferedWriter out = new BufferedWriter(new FileWriter("Partidas.txt"));
-            guardarPartida(jugador1, jugador2, partida);
+            guardarPartida(partida);
         }
 	  
 	}
@@ -202,6 +217,13 @@ public class Gestor {
 	public void enviarJuego(tiposDeJuego tipoJuego){
 		this.tablero = new Tablero(tipoJuego);
 	}
+	
+	public boolean checkTipJuego(){
+		if(this.tablero != null){
+			return true;
+		}
+		return false;
+	}
 
 	public String[][] obtenerMatriz(){
 		return this.tablero.dibujarTablero();
@@ -225,6 +247,6 @@ public class Gestor {
 			}
 		}*/
 		ajedrez.moverPieza(posActX, posAct, posMovX, posAMov);
-		tablero.dibujarTablero();
+		System.out.println(tablero.dibujarTablero());
 	}
 }
