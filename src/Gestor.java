@@ -129,6 +129,5 @@ public class Gestor {
 			}
 		}*/
 		ajedrez.moverPieza(posActX, posAct, posMovX, posAMov);
-		tablero.dibujarTablero();
 	}
 }
