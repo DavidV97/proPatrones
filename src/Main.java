@@ -31,7 +31,7 @@ public class Main {
 	static void showMenu() {
 		out.println();
 
-		out.println("    -- MENÚ PRINCIPAL --    ");
+		out.println("    -- MENï¿½ PRINCIPAL --    ");
 		out.println("1.Crear jugador ");
 		out.println("2.Escoger tipo de juego  ");
 		out.println("3. imprimirTablero ");
@@ -121,7 +121,7 @@ public class Main {
 		boolean reprobate = true;
 
 		while (reprobate) {
-			out.println("Contraseña: ");
+			out.println("Contraseï¿½a: ");
 			password = readInput();
 			if (password != null && password != "") {
 				reprobate = false;
@@ -180,7 +180,7 @@ public class Main {
 			System.out.println("Ingrese la posicion actual de la pieza y la coordenada a la cual quiere mover la pieza: ");
 			String posicion = readInput();
 			String[] posiciones = posicion.split(","); 
-			String letraTablero = posiciones[0].substring(0,1).toUpperCase();
+			String letraTablero = posiciones[1].substring(0,1).toUpperCase();
 			int posActX = verificarLetra(letraTablero);
 			String prueba;
 			char posicionActual = posiciones[0].charAt(1);
@@ -191,7 +191,8 @@ public class Main {
 			char posicionAMover = posiciones[1].charAt(1);
 			prueba = String.valueOf(posicionAMover);
 			int posAMov = Integer.valueOf(prueba);
-			gestor.moverPiezas(posActX,posAct,posMovX,posAMov);
+			out.println(posActX+"-"+posAct+"-"+posMovX+"-"+posAMov);
+			gestor.moverPiezas(posAct,posActX,posAMov,posMovX);
 			
 		}
 	

@@ -213,9 +213,10 @@ public class Ajedrez implements TipoJuego{
 	@Override
 	public void moverPieza(int xOrigen, int yOringen, int xDestino, int yDestino) {
 		for(Pieza item : this.piezas){
-			if(item.getX() == xOrigen && item.getY() == yOringen){
+			if(item.getX()==xOrigen && item.getY()==yOringen){
 				item.setX(xDestino); 
 				item.setY(yDestino);
+				System.out.println(item.getImagen()+"-"+item.getX()+"-"+item.getY());
 			}
 		}
 		

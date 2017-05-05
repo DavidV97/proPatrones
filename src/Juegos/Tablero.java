@@ -17,9 +17,11 @@ public class Tablero {
 	public TipoJuego getTipoJuego() {
 		return tipoJuego;
 	}
+
 	public void setTipoJuego(TipoJuego tipoJuego) {
 		this.tipoJuego = tipoJuego;
 	}
+
 	public String[][] dibujarTablero(){
 		String [][] tablero = new String[getX()][getY()];
 		for(Pieza item : tipoJuego.getPiezas()){
@@ -34,8 +36,8 @@ public class Tablero {
 		tablero[8][6] = "  G ";
 		tablero[8][7] = "  H ";
 		return tablero;
-	
 	}
+
 	/*public void dibujarTablero(Pieza Peon,Pieza Peon2){		
 	//	tablero[Peon3.getY()][Peon3.getX()] = "[" + Peon3.getImagen() + "]";
 		Boolean negro = true; 
