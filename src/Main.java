@@ -31,21 +31,14 @@ public class Main {
 	static void showMenu() {
 		out.println();
 
-<<<<<<< HEAD
-		out.println("    -- MEN� PRINCIPAL --    ");
+		out.println("    -- MENÚ PRINCIPAL --    ");
 		out.println("1. Crear jugador ");
 		out.println("2. Escoger tipo de juego  ");
 		out.println("3. ImprimirTablero ");
 		out.println("4. Mover Piezas ");
 		out.println("5. Seleccionar jugadores para el juego");
 		out.println("0. Salir ");
-=======
-		out.println("    -- MEN� PRINCIPAL --    ");
-		out.println("1.Crear jugador ");
-		out.println("2.Escoger tipo de juego  ");
-		out.println("3. imprimirTablero ");
-		out.println("4. mover Piezas ");
->>>>>>> 2baac8260d6b867489cc1fe49d1ac415bb949f34
+
 	}
 
 
@@ -58,36 +51,33 @@ public class Main {
 
 			showMenu();
 			option = readInput();
+			
+			switch(option){			
 
-			if (option.equals("1")) {
+			case "1":
 				createJugador();
-			} else if (option.equals("2")) {
+				break;
+			case "2":
 				out.println("1- Ajedrez\n 2- Damas\n 3- Go  ");
 				String tipoJuego = readInput();
 				escogerJuego(tipoJuego);
-
-			} else if (option.equals("3")) {
+				break;
+			case "3":
 				imprimirTablero();
-
-			} else if (option.equals("4")) {
+				break;
+			case "4":
 				moverPiezas();
-<<<<<<< HEAD
 				break;
 			case "5":
 				selecJugadores();
 				break;
 			case "0":
-=======
-
-
-			} else if (option.equals("0")) {
->>>>>>> 2baac8260d6b867489cc1fe49d1ac415bb949f34
 				exit = true;
 				out.println("-- Hasta pronto --");
-
-			} else {
+				break;
+			default:
 				out.println("-- Opcion invalida --");
-				out.println();
+				break;
 			}
 		}
 	}
@@ -100,58 +90,49 @@ public class Main {
 		pPassword = getPassword();
 
 		gestor.createJugador(pUsername, pEmail, pPassword);
+		out.println("Jugador creado de manera exitosa");
 	}
 
 	static String getUsername() throws IOException {
-<<<<<<< HEAD
 		String username = ""; 
 		
 		out.println("Nombre de usuario: ");
 		username = readInput();
-=======
-		String username = "";
-		boolean reprobate = true;
->>>>>>> 2baac8260d6b867489cc1fe49d1ac415bb949f34
 
-		while (reprobate) {
-			out.println("Nombre de usuario: ");
-			username = readInput();
-			if (username != null && username != "" && gestor.checkExists(username)) {
-				reprobate = false;
-			}
+		if(gestor.checkExists(username)){
+			out.println("El usuario digitado ya existe.");
+			getUsername();
 		}
 		return username;
 	}
 
 	static String getEmail() throws IOException {
 		String email = "";
-		boolean reprobate = true;
 		Pattern pattern = Pattern.compile(
 				"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		Matcher mather;
 
-		while (reprobate) {
-			out.println("E-mail: ");
-			email = readInput();
-			mather = pattern.matcher(email);
-			if (email != null && email != "" && mather.find()) {
-				reprobate = false;
-			}
+		out.println("E-mail: ");
+		email = readInput();
+		mather = pattern.matcher(email);
+		
+		if(!mather.find()){
+			out.println("El formato del correo digitado es ivalido.");
+			getEmail();
 		}
 		return email;
 	}
 
 	static String getPassword() throws IOException {
 		String password = "";
-		boolean reprobate = true;
 
-		while (reprobate) {
-			out.println("Contrase�a: ");
-			password = readInput();
-			if (password != null && password != "") {
-				reprobate = false;
+		out.println("Contraseña: ");
+		password = readInput();
+
+			if(password.length() < 6){
+				out.println("La contraseña debe tener minimo 6 caracteres.");
+				getPassword();
 			}
-		}
 		return password;
 	}
 	
