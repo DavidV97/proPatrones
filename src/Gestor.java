@@ -215,7 +215,7 @@ public class Gestor {
 		}
 	}
 
-	public void enviarJuego(tiposDeJuego tipoJuego) {
+	public void enviarJuego(tiposDeJuego tipoJuego) { 
 		this.tablero = new Tablero(tipoJuego);
 	}
 
