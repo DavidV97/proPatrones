@@ -57,7 +57,7 @@ public class Ajedrez implements TipoJuego{
         peon.setX(x); 
         peon.setY(y); 
         peon.setComer((p)->{ 
-            int avanza = 0; 
+            int avanza = 0;  
             if(peon.getBlanca()){ 
                 avanza = 1; 
             } else{ 
