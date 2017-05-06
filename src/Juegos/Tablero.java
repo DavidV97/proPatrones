@@ -8,13 +8,12 @@ public class Tablero {
 	private TipoJuego tipoJuego;
 	private int x;
 	private int y;
-	private String [][] tablero;
-
+	
 	public Tablero(tiposDeJuego tipoJuego){
 		setTipoJuego(CommunicationComponentFactory.CreateComponentForGame(tipoJuego));
 		setX(tipoJuego.getX());
 		setY(tipoJuego.getY());
-		tablero = new String[getX()][getY()];
+		
 	}
 	public TipoJuego getTipoJuego() {
 		return tipoJuego;
@@ -25,8 +24,9 @@ public class Tablero {
 	}
 
 	public String[][] dibujarTablero(){
+		String[][] tablero = new String[getX()][getY()];
 		for(Pieza item : this.tipoJuego.getPiezas()){
-			this.tablero[item.getX()][item.getY()] =  "[" + item.getImagen() + "]";
+			tablero[item.getX()][item.getY()] =  "[" + item.getImagen() + "]";
 		} 
 		
 		tablero[8][0] = "  A ";
@@ -39,44 +39,6 @@ public class Tablero {
 		tablero[8][7] = "  H ";
 		return tablero;
 	}
-
-	/*public void dibujarTablero(Pieza Peon,Pieza Peon2){		
-	//	tablero[Peon3.getY()][Peon3.getX()] = "[" + Peon3.getImagen() + "]";
-		Boolean negro = true; 
-		int X = 0;
-	   	 
-        for(int Y= 0; Y < getDimensionY(); Y++){ 
-     
-            for(X = 0; X< getDimensionX(); X++){ 
-               // if(Peon != null){ 
-                  //  if(Peon.getX()==X && Peon.getY()==Y){ 
-                    	if(tablero[Y][X] != null){
-                    		System.out.print(tablero[Y][X]); 
-
-                            negro = !negro; 
-                            continue; 
-                    	}
-                    	
-                    //}  
-                //}  
-                if(Peon2!=null){ 
-                    if(Peon2.getX()==X && Peon2.getY()==Y){ 
-                    	System.out.print(tablero[Y][X] = "[" + Peon2.getImagen() +"]"); 
-                        negro = !negro; 
-                        continue; 
-                    }  
-                } 
-                if(8 > X){
-                	if(tablero[Y][X] == null){
-                		System.out.print(tablero[Y][X] = "[  ]");
-                	}
-            	}
-            } 
-            System.out.println(); 
-            
-        } 
-       // System.out.print("   A  B  C  D  E  F  G  H\n"); 
-    }*/
 	public int getX() {
 		return x;
 	}
@@ -89,6 +51,4 @@ public class Tablero {
 	public void setY(int y) {
 		this.y = y;
 	}
-
-
 }
