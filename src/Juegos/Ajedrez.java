@@ -30,7 +30,7 @@ public class Ajedrez implements TipoJuego{
 		this.piezas.add(new Pieza("Peon","NP",false,1,5,null));
 		this.piezas.add(new Pieza("Peon","NP",false,1,6,null));
 		this.piezas.add(new Pieza("Peon","NP",false,1,7,null));
-		
+
 		//piezas blancas
 		this.piezas.add(new Pieza("Torre","BR",true,7,7,null));
 		this.piezas.add(new Pieza("Torre","BR",true,7,0,null));
@@ -57,7 +57,7 @@ public class Ajedrez implements TipoJuego{
         peon.setX(x); 
         peon.setY(y); 
         peon.setComer((p)->{ 
-            int avanza = 0; 
+            int avanza = 0;  
             if(peon.getBlanca()){ 
                 avanza = 1; 
             } else{ 

@@ -31,7 +31,7 @@ public class Main {
 	static void showMenu() {
 		out.println();
 
-		out.println("    -- MENÃš PRINCIPAL --    ");
+		out.println("    -- MENÚ PRINCIPAL --    ");
 		out.println("1. Crear jugador ");
 		out.println("2. Escoger tipo de juego  ");
 		out.println("3. ImprimirTablero ");
@@ -51,8 +51,8 @@ public class Main {
 
 			showMenu();
 			option = readInput();
-			
-			switch(option){			
+
+			switch(option){   
 
 			case "1":
 				createJugador();
@@ -81,7 +81,6 @@ public class Main {
 			}
 		}
 	}
-
 	static void createJugador() throws IOException {
 		String pUsername, pEmail, pPassword;
 
@@ -95,7 +94,7 @@ public class Main {
 
 	static String getUsername() throws IOException {
 		String username = ""; 
-		
+
 		out.println("Nombre de usuario: ");
 		username = readInput();
 
@@ -115,7 +114,7 @@ public class Main {
 		out.println("E-mail: ");
 		email = readInput();
 		mather = pattern.matcher(email);
-		
+
 		if(!mather.find()){
 			out.println("El formato del correo digitado es ivalido.");
 			getEmail();
@@ -126,19 +125,19 @@ public class Main {
 	static String getPassword() throws IOException {
 		String password = "";
 
-		out.println("ContraseÃ±a: ");
+		out.println("Contraseña: ");
 		password = readInput();
 
-			if(password.length() < 6){
-				out.println("La contraseÃ±a debe tener minimo 6 caracteres.");
-				getPassword();
-			}
+		if(password.length() < 6){
+			out.println("La contraseña debe tener minimo 6 caracteres.");
+			getPassword();
+		}
 		return password;
 	}
-	
+
 	static void selecJugadores() throws IOException{
 		String username1,username2;
-		
+
 		if(gestor.getQuanJug() > 0){
 			out.println(gestor.getDBJugadores());
 			out.println("Digite el nombre de usuario del jugador 1");
@@ -166,7 +165,7 @@ public class Main {
 		boolean validation = false;
 		if(gestor.getQuanJug() >= 2){
 			if(gestor.haveSelecJug()){
-					validation = true;
+				validation = true;
 			}else{
 				out.println("Debe de seleccionar 2 jugadores para jugar.");
 			}
@@ -175,7 +174,7 @@ public class Main {
 		}
 		return validation;
 	}
-	
+
 	public static void escogerJuego(String tipoJuego) {
 		switch (tipoJuego) {
 		case "1":
@@ -200,30 +199,30 @@ public class Main {
 		out.println("Jugador: " + gestor.getJugAct2());
 		for (int x = 0; x < matriz.length; x++) {
 			for (int y = 0; y < matriz[x].length; y++) {
-				
+
 				if (matriz[x][y] == null) {
 					System.out.print("[  ]");
 				} else {
 					System.out.print(matriz[x][y]);
 				}
-				
+
 			}
 			if(x != 8){
 				System.out.println(x);
 			}
-			
+
 			//System.out.println(((6<=7)?x+" ":"")); 
 			//System.out.println(" ");
-			
+
 		}
 		out.println("");
 		out.println("Jugador: " + gestor.getJugAct1());
-		
+
 	}
 	public static void Jugar() throws IOException{
 		String salir = "";
 		int aux = 1;
-		
+
 		if(validateGame() && gestor.checkTipJuego()){
 			while(salir != "E"){
 				imprimirTablero();
@@ -243,7 +242,7 @@ public class Main {
 			out.println("Debe seleccionar el tipo de juego para jugar");
 		}
 	}
-	
+
 	public static void moverPiezas(String posicion) throws IOException{
 		String[] posiciones = posicion.split(","); 
 		String letraTablero = posiciones[1].substring(0,1).toUpperCase();
@@ -267,22 +266,22 @@ public class Main {
 			return gestor.getJugAct1();
 		}
 	}
-	
+
 	public static int  verificarLetra(String letraTablero){
-		
+
 		switch (letraTablero) {
-        case "A": return 0;
-        case "B": return 1;
-        case "C": return 2;
-        case "D": return 3;
-        case "E": return 4;
-        case "F": return 5;
-        case "G": return 6;
-        case "H": return 7;
-        default: System.out.print("Coordenada de letra incorrecta");
-                 break;
+		case "A": return 0;
+		case "B": return 1;
+		case "C": return 2;
+		case "D": return 3;
+		case "E": return 4;
+		case "F": return 5;
+		case "G": return 6;
+		case "H": return 7;
+		default: System.out.print("Coordenada de letra incorrecta");
+		break;
 		}
 		return 0;
-	
+
 	}
 }
