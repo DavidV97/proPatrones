@@ -8,7 +8,6 @@ public class Tablero {
 	private TipoJuego tipoJuego;
 	private int x;
 	private int y;
-	 private String [][] tablero = new String[getX()][getY()];
 	public Tablero(tiposDeJuego tipoJuego){
 		setTipoJuego(CommunicationComponentFactory.CreateComponentForGame(tipoJuego));
 		setX(tipoJuego.getX());
@@ -23,9 +22,9 @@ public class Tablero {
 	}
 
 	public String[][] dibujarTablero(){
-
-		for(Pieza item : this.tipoJuego.getPiezas()){
-			tablero[item.getX()][item.getY()] =  "[" + item.getImagen() + "]";
+		String [][] tablero = new String[getX()][getY()];
+		for(Pieza item: this.tipoJuego.getPiezas()){
+			tablero[item.getX()][item.getY()]="["+item.getImagen()+"]";
 		}
 		tablero[8][0] = "  A ";
 		tablero[8][1] = "  B ";
