@@ -232,6 +232,7 @@ public class Gestor {
 
 	public void moverPiezas(int posActX, int posAct, int posMovX, int posAMov) {
 		this.tablero.getTipoJuego().moverPieza(posActX, posAct, posMovX, posAMov);
+
 		comerPieza(posMovX,posAMov);
 
 	}

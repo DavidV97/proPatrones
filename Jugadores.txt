@@ -1,4 +1,4 @@
-Username= juan123
+Username= juano123
 Email= juanito@gmail.com
 Password= 12345678
 Username= juanito123

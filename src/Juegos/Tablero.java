@@ -22,7 +22,7 @@ public class Tablero {
 	}
 
 	public String[][] dibujarTablero(){
-		String [][] tablero = new String[getX()][getY()];
+		private String [][] tablero = new String[getX()][getY()];
 		for(Pieza item : this.tipoJuego.getPiezas()){
 			tablero[item.getX()][item.getY()] =  "[" + item.getImagen() + "]";
 		}
@@ -37,42 +37,42 @@ public class Tablero {
 		return tablero;
 	}
 
-	/*public void dibujarTablero(Pieza Peon,Pieza Peon2){		
+	/*public void dibujarTablero(Pieza Peon,Pieza Peon2){
 	//	tablero[Peon3.getY()][Peon3.getX()] = "[" + Peon3.getImagen() + "]";
-		Boolean negro = true; 
+		Boolean negro = true;
 		int X = 0;
-	   	 
-        for(int Y= 0; Y < getDimensionY(); Y++){ 
-     
-            for(X = 0; X< getDimensionX(); X++){ 
-               // if(Peon != null){ 
-                  //  if(Peon.getX()==X && Peon.getY()==Y){ 
-                    	if(tablero[Y][X] != null){
-                    		System.out.print(tablero[Y][X]); 
 
-                            negro = !negro; 
-                            continue; 
+        for(int Y= 0; Y < getDimensionY(); Y++){
+
+            for(X = 0; X< getDimensionX(); X++){
+               // if(Peon != null){
+                  //  if(Peon.getX()==X && Peon.getY()==Y){
+                    	if(tablero[Y][X] != null){
+                    		System.out.print(tablero[Y][X]);
+
+                            negro = !negro;
+                            continue;
                     	}
-                    	
-                    //}  
-                //}  
-                if(Peon2!=null){ 
-                    if(Peon2.getX()==X && Peon2.getY()==Y){ 
-                    	System.out.print(tablero[Y][X] = "[" + Peon2.getImagen() +"]"); 
-                        negro = !negro; 
-                        continue; 
-                    }  
-                } 
+
+                    //}
+                //}
+                if(Peon2!=null){
+                    if(Peon2.getX()==X && Peon2.getY()==Y){
+                    	System.out.print(tablero[Y][X] = "[" + Peon2.getImagen() +"]");
+                        negro = !negro;
+                        continue;
+                    }
+                }
                 if(8 > X){
                 	if(tablero[Y][X] == null){
                 		System.out.print(tablero[Y][X] = "[  ]");
                 	}
             	}
-            } 
-            System.out.println(); 
-            
-        } 
-       // System.out.print("   A  B  C  D  E  F  G  H\n"); 
+            }
+            System.out.println();
+
+        }
+       // System.out.print("   A  B  C  D  E  F  G  H\n");
     }*/
 	public int getX() {
 		return x;
