@@ -19,6 +19,9 @@ public class Damas implements TipoJuego{
 		// TODO Auto-generated method stub
 		
 	}
+	public void comerPieza(int posMovX,int posAMov){
+
+	}
 
 
 }

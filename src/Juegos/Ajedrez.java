@@ -220,6 +220,23 @@ public class Ajedrez implements TipoJuego{
 			}
 		}
 		
-	} 
-
+	}
+	@Override
+	public void comerPieza(int posMovX,int posAMov){
+		for (Pieza item:this.piezas){
+			if(item.getBlanca()==false) {
+				if (item.getX() == posMovX + 1 && item.getY() == posAMov) {
+					item.setImagen("  ");
+					System.out.println("Elmer" + item.getImagen());
+				}
+			}else if(item.getBlanca()==true) {
+				if (item.getX() == posMovX - 1 && item.getY() == posAMov) {
+					item.setImagen("  ");
+					System.out.println("Elmer" + item.getImagen());
+				}
+			}
+		}
+	}
 }
+
+
